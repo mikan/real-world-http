@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-func TestToMain(t *testing.T) {
+func TestHandler(t *testing.T) {
 	ts := httptest.NewServer(http.HandlerFunc(handler))
 	resp, err := http.Get(ts.URL)
 	if err != nil {
