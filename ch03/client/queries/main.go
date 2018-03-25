@@ -4,13 +4,17 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 )
 
 var endpoint = "http://localhost:18888"
 
-// List 3-1 (P58)
+// List 3-4 (P72)
 func main() {
-	resp, err := http.Get(endpoint)
+	values := url.Values{
+		"query": {"hello world"},
+	}
+	resp, err := http.Get(endpoint + "?" + values.Encode())
 	if err != nil {
 		panic(err)
 	}
@@ -20,6 +24,4 @@ func main() {
 		panic(err)
 	}
 	fmt.Println(string(body))
-	fmt.Println("Status:", resp.Status)
-	fmt.Println("StatusCode:", resp.StatusCode)
 }

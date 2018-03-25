@@ -25,6 +25,4 @@ func Example() {
 	main()
 	// Output:
 	// Hello, World!
-	// Status: 200 OK
-	// StatusCode: 200
 }
